@@ -106,10 +106,16 @@ const perfilUsuario = (req, res) => {
 const updatePerfil = async (req, res) =>{
     //1. Tomar datos
     const {id} = req.params;
+
     //2. Validar Datos
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(400).json({msg:"Debe ser un id válido"});
 
     //3. Interactuar con la BDD
+    const VerinarioBDD = await Veterinario.findOne({id});
+    console.log(VerinarioBDD);
+
+    
+    
     res.status(200).json({msg: "Va a actualizar"});
 }
 
