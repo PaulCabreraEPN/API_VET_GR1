@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import routerVet from './routers/Veterinario_routers.js';
+import routerPac from './routers/Paciente_routes.js';
 
 
 
@@ -27,6 +28,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/api', routerVet);
+app.use('/api', routerPac);
 
 //Rutas no encontrdas
 app.use((req, res)=>res.status(404).send("Endpoint no econtrado - 404"))
